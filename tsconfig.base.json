@@ -17,7 +17,8 @@
     "paths": {
       "@bitnine-recruitment/api/authentication": [
         "libs/api/authentication/src/index.ts"
-      ]
+      ],
+      "@bitnine-recruitment/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
