@@ -1,0 +1,108 @@
+.navigationTextContainer {
+    padding-left: 4vw;
+}
+
+mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-multiple-rows {
+    --mat-toolbar-container-background-color: black;
+}
+
+.navigationText:hover {
+    color: #fac433;
+}
+
+div#searchInput {
+    width: 250px;
+    height: 28px;
+    border: 1px solid grey;
+    border-radius: 25px;
+    display: flex;
+}
+
+input#searchText {
+    color: grey;
+    margin: 0px 10px;
+}
+
+.SearchButton {
+    border: 1px solid greywhite;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    width: 30px;
+    position: relative;
+    right: 32px;
+}
+
+.searchInputContainer {
+    display: flex;
+}
+
+div#searchPlaceHolder {
+    width: 50px;
+}
+
+.socialIcons {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+img.githubImage {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 40%;
+    width: 100%;
+    position: relative;
+}
+
+.overlayGithub {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+
+/* When you mouse over the container, fade in the overlay icon*/
+.container:hover .overlayGithub {
+    bottom: 0;
+    height: 100%;
+}
+
+.overlayYoutube {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: red;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+
+/* When you mouse over the container, fade in the overlay icon*/
+.container:hover .overlayYoutube {
+    bottom: 0;
+    height: 100%;
+}
+
+.test{
+    background-color: black;
+    transition: background-color 1s;
+}
+
+.test:hover {
+    background-color: red;
+}
