@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@bitnine-recruitment/api/authentication": [
+        "libs/api/authentication/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
