@@ -13,8 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import {MatIconModule} from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { PalindroneComponent } from './palindrone/palindrone.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,14 @@ import { FormsModule } from '@angular/forms';
     TestComponent,
     HomeComponent,
     LoginComponent,
+    PalindroneComponent,
   ],
-  exports: [NavigationComponent, TestComponent, HomeComponent, LoginComponent],
+  exports: [
+    NavigationComponent,
+    TestComponent,
+    HomeComponent,
+    LoginComponent,
+    PalindroneComponent,
+  ],
 })
 export class UiModule {}

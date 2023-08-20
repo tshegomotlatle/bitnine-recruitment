@@ -10,3 +10,5 @@ export * from './lib/test/test.component';
 export * from './lib/home/home.component';
 
 export * from './lib/login/login.component';
+
+export * from './lib/palindrone/palindrone.component';
