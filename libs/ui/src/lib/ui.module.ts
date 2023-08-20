@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { PalindroneComponent } from './palindrone/palindrone.component';
+import { MissingNumberComponent } from './missing-number/missing-number.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { PalindroneComponent } from './palindrone/palindrone.component';
     HomeComponent,
     LoginComponent,
     PalindroneComponent,
+    MissingNumberComponent,
   ],
   exports: [
     NavigationComponent,
@@ -44,6 +46,7 @@ import { PalindroneComponent } from './palindrone/palindrone.component';
     HomeComponent,
     LoginComponent,
     PalindroneComponent,
+    MissingNumberComponent,
   ],
 })
 export class UiModule {}
