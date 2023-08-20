@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { TestComponent } from './test/test.component';
     BrowserAnimationsModule,
     RouterModule.forChild(uiRoutes),
   ],
-  declarations: [NavigationComponent, TestComponent],
-  exports: [NavigationComponent, TestComponent],
+  declarations: [NavigationComponent, TestComponent, ProductsComponent],
+  exports: [NavigationComponent, TestComponent, ProductsComponent],
 })
 export class UiModule {}
