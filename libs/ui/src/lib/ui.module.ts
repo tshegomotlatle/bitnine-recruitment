@@ -11,7 +11,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
-import { ProductsComponent } from './products/products.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import {MatIconModule} from '@angular/material/icon'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -22,10 +25,17 @@ import { ProductsComponent } from './products/products.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
+    FormsModule,
     BrowserAnimationsModule,
     RouterModule.forChild(uiRoutes),
   ],
-  declarations: [NavigationComponent, TestComponent, ProductsComponent],
-  exports: [NavigationComponent, TestComponent, ProductsComponent],
+  declarations: [
+    NavigationComponent,
+    TestComponent,
+    HomeComponent,
+    LoginComponent,
+  ],
+  exports: [NavigationComponent, TestComponent, HomeComponent, LoginComponent],
 })
 export class UiModule {}

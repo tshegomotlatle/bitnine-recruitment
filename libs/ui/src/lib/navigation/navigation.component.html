@@ -1,46 +1,67 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row class="aligned-right">
-        <div class="searchInputContainer">
-            <div id="searchInput" *ngIf="showSearchBar">
-                <input id="searchText" type="text" style="border:none; background: transparent; outline: 0;" />
-            </div>
-            <div id="searchPlaceHolder" *ngIf="!showSearchBar">
-            </div>
-            <div class="SearchButton" (click)="toggleSearchBarShow()">
-                <span class="material-symbols-outlined">
-                    search
-                </span>
-            </div>
-        </div>
-        <div class="navigationTextContainerAbove">
-            <a class="navigationText" mat-button [routerLink]="'/Contact'"> Contact</a>
-        </div>
-        <div class="socialIcons">
-            <div class="containerGit">
-                <img class="githubImage" src="assets/github-mark-white.svg" alt="Avatar">
-            </div>
-            <div class="containerYou">
-                <img class="githubImage" src="assets/youtubeIcon.png" alt="Avatar">
-            </div>
-            <div class="containerLinked">
-                <img class="githubImage" src="assets/linkedin.png" alt="Avatar">
-            </div>
-            <div class="containerFB">
-                <img class="githubImage" src="assets/fb.png" alt="Avatar">
-            </div>
-            <div class="containerNaver">
-                <img class="githubImage" src="assets/Naver.png" alt="Avatar">
-            </div>
-        </div>
-    </mat-toolbar-row>
-    <mat-toolbar-row>
-        <img class="for_default" src="https://bitnine.net/wp-content/uploads/2023/08/bitnine-logo_.png" width="235"
-            height="61" alt="">
-        <span class="menu-spacer"></span>
-        <div class="navigationTextContainer">
-            <a class="navigationText" mat-button [routerLink]="'/Home'"> Home</a>
-            <a class="navigationText" mat-button [routerLink]="'/Question-6-1'"> Question 6-1 </a>
-            <a class="navigationText" mat-button [routerLink]="'/Question-6-1'"> Question 6-2 </a>
-        </div>
-    </mat-toolbar-row>
+  <mat-toolbar-row class="aligned-right">
+    <div class="searchInputContainer">
+      <div id="searchInput" *ngIf="showSearchBar">
+        <input
+          id="searchText"
+          type="text"
+          style="border: none; background: transparent; outline: 0"
+        />
+      </div>
+      <div id="searchPlaceHolder" *ngIf="!showSearchBar"></div>
+      <div class="SearchButton" (click)="toggleSearchBarShow()">
+        <span class="material-symbols-outlined"> search </span>
+      </div>
+    </div>
+    <div class="navigationTextContainerAbove">
+      <a class="navigationText" mat-button [routerLink]="'/Contact'">
+        Contact</a
+      >
+    </div>
+    <div class="socialIcons">
+      <div class="containerGit">
+        <img
+          class="githubImage"
+          src="assets/github-mark-white.svg"
+          alt="Avatar"
+        />
+      </div>
+      <div class="containerYou">
+        <img class="githubImage" src="assets/youtubeIcon.png" alt="Avatar" />
+      </div>
+      <div class="containerLinked">
+        <img class="githubImage" src="assets/linkedin.png" alt="Avatar" />
+      </div>
+      <div class="containerFB">
+        <img class="githubImage" src="assets/fb.png" alt="Avatar" />
+      </div>
+      <div class="containerNaver">
+        <img class="githubImage" src="assets/Naver.png" alt="Avatar" />
+      </div>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <img
+      class="for_default"
+      src="https://bitnine.net/wp-content/uploads/2023/08/bitnine-logo_.png"
+      width="235"
+      height="61"
+      alt=""
+    />
+    <span class="menu-spacer"></span>
+    <div class="navigationTextContainer">
+      <div class="navigationText">
+        <a mat-button [routerLink]="'/Home'"> Home</a>
+      </div>
+      <div class="navigationText">
+        <a mat-button [routerLink]="'/Question-6-1'"> Question 6-1 </a>
+      </div>
+      <div class="navigationText">
+        <a mat-button [routerLink]="'/Question-6-2'"> Question 6-2 </a>
+      </div>
+      <div class="navigationText" id="loginText">
+        <a mat-button [routerLink]="'/Login'"> Login </a>
+      </div>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>

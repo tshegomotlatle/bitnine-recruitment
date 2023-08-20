@@ -1,5 +1,7 @@
 .navigationTextContainer {
     padding-left: 4vw;
+    display: flex;
+    width: 100vw;
 }
 
 mat-toolbar.mat-toolbar.mat-primary.mat-toolbar-multiple-rows {
@@ -245,5 +247,9 @@ img.githubImage {
 
 .aligned-right{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+}
+
+div#loginText {
+    margin-left: auto;
 }

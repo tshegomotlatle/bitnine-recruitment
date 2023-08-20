@@ -7,4 +7,6 @@ export * from './lib/navigation/navigation.component';
 
 export * from './lib/test/test.component';
 
-export * from './lib/products/products.component';
+export * from './lib/home/home.component';
+
+export * from './lib/login/login.component';
