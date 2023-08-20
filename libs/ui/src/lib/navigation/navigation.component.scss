@@ -40,13 +40,14 @@ input#searchText {
 }
 
 div#searchPlaceHolder {
-    width: 50px;
+    width: 5px;
 }
 
 .socialIcons {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 img.githubImage {
@@ -54,55 +55,195 @@ img.githubImage {
     width: 100%;
 }
 
-.container {
-    height: 40%;
-    width: 100%;
-    position: relative;
-}
-
-.overlayGithub {
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    right: 0;
-    background-color: #008CBA;
-    overflow: hidden;
-    width: 100%;
-    height: 0;
-    transition: .5s ease;
-}
-
-
-/* When you mouse over the container, fade in the overlay icon*/
-.container:hover .overlayGithub {
-    bottom: 0;
-    height: 100%;
-}
-
-.overlayYoutube {
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    right: 0;
-    background-color: red;
-    overflow: hidden;
-    width: 100%;
-    height: 0;
-    transition: .5s ease;
-}
-
-
-/* When you mouse over the container, fade in the overlay icon*/
-.container:hover .overlayYoutube {
-    bottom: 0;
-    height: 100%;
-}
-
-.test{
+.containerGit {
+    height: 2vh;
+    width: 1.5v;
+    display: flex;
+        align-items: center;
+        justify-content: center;
     background-color: black;
-    transition: background-color 1s;
+    padding: 5px;
+    position: relative;
+    overflow: hidden;
+
+    div,
+    a,
+    img {
+        position: relative;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background: #5A5A5A;
+        transition: 0.25s ease bottom;
+    }
+
+    &:hover {
+        &:before {
+            bottom: 0%;
+        }
+    }
 }
 
-.test:hover {
-    background-color: red;
+.containerYou {
+    height: 2vh;
+        width: 1.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    background-color: black;
+    padding: 5px;
+    ;
+
+    position: relative;
+    overflow: hidden;
+
+    div,
+    a,
+    img {
+        position: relative;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background: #FF0000;
+        transition: 0.25s ease bottom;
+    }
+
+    &:hover {
+        &:before {
+            bottom: 0%;
+        }
+    }
+}
+
+.containerLinked {
+    height: 2vh;
+        width: 1.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    background-color: black;
+    padding: 5px;
+    ;
+
+    position: relative;
+    overflow: hidden;
+
+    div,
+    a,
+    img {
+        position: relative;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background: #0072b1;
+        transition: 0.25s ease bottom;
+    }
+
+    &:hover {
+        &:before {
+            bottom: 0%;
+        }
+    }
+}
+
+.containerFB {
+    height: 2vh;
+        width: 1.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    background-color: black;
+    padding: 5px;
+    ;
+
+    position: relative;
+    overflow: hidden;
+
+    div,
+    a,
+    img {
+        position: relative;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background: #1877F2;
+        transition: 0.25s ease bottom;
+    }
+
+    &:hover {
+        &:before {
+            bottom: 0%;
+        }
+    }
+}
+
+.containerNaver {
+    height: 2vh;
+        width: 1.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    background-color: black;
+    padding: 5px;
+    ;
+
+    position: relative;
+    overflow: hidden;
+
+    div,
+    a,
+    img {
+        position: relative;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background: #3EAF0E;
+        transition: 0.25s ease bottom;
+    }
+
+    &:hover {
+        &:before {
+            bottom: 0%;
+        }
+    }
+}
+
+.aligned-right{
+    display: flex;
+    justify-content: end;
 }

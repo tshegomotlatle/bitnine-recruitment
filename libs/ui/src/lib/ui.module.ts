@@ -10,10 +10,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { TestComponent } from './test/test.component';
 
 @NgModule({
-  imports: [CommonModule, 
+  imports: [
+    CommonModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
@@ -21,8 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    RouterModule.forChild(uiRoutes)],
-  declarations: [NavigationComponent],
-  exports: [NavigationComponent],
+    RouterModule.forChild(uiRoutes),
+  ],
+  declarations: [NavigationComponent, TestComponent],
+  exports: [NavigationComponent, TestComponent],
 })
 export class UiModule {}

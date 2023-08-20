@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
+    <mat-toolbar-row class="aligned-right">
         <div class="searchInputContainer">
             <div id="searchInput" *ngIf="showSearchBar">
                 <input id="searchText" type="text" style="border:none; background: transparent; outline: 0;" />
@@ -16,25 +16,20 @@
             <a class="navigationText" mat-button [routerLink]="'/Contact'"> Contact</a>
         </div>
         <div class="socialIcons">
-            <div class="container">
+            <div class="containerGit">
                 <img class="githubImage" src="assets/github-mark-white.svg" alt="Avatar">
-                <div class="overlayGithub">
-                    <a href="#" class="icon" title="User Profile">
-                        <img class="githubImage" src="assets/github-mark-white.svg" alt="Avatar">
-                    </a>
-                </div>
             </div>
-            <div class="container">
+            <div class="containerYou">
                 <img class="githubImage" src="assets/youtubeIcon.png" alt="Avatar">
-                <div class="overlayYoutube">
-                    <a href="#" class="icon" title="User Profile">
-                        <img class="githubImage" src="assets/youtubeIcon.png" alt="Avatar">
-                    </a>
-                </div>
             </div>
-            <div class="container">
-                 <img class="githubImage test" src="assets/youtubeIcon.png" alt="Avatar">
-
+            <div class="containerLinked">
+                <img class="githubImage" src="assets/linkedin.png" alt="Avatar">
+            </div>
+            <div class="containerFB">
+                <img class="githubImage" src="assets/fb.png" alt="Avatar">
+            </div>
+            <div class="containerNaver">
+                <img class="githubImage" src="assets/Naver.png" alt="Avatar">
             </div>
         </div>
     </mat-toolbar-row>
