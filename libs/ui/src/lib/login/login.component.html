@@ -43,7 +43,7 @@
         </mat-form-field>
       </div>
       <div class="ButtonContainer">
-        <button type="button" class="loginButton">Login</button>
+        <button type="button" class="loginButton" (click)="login()">Login</button>
       </div>
       <div class="registerLink">
         Not a member?
@@ -126,8 +126,8 @@
         <button type="button" class="loginButton" (click)="register()">Register</button>
       </div>
       <div class="registerLink">
-        Not a member?
-        <div class="registerLinkClick" (click)="toggleRegister()">Sign up</div>
+        Already a member?
+        <div class="registerLinkClick" (click)="toggleRegister()">Sign in</div>
       </div>
     </div>
   </div>

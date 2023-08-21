@@ -75,6 +75,13 @@ export class LoginComponent {
   }
 
   login():void{
+    this.userService.login(this.user.email, this.user.password)
+    .subscribe(
+      (res) =>{
+        console.log(res);
+      }
+    )
+    
   }
 
   checkUserDetails() :boolean

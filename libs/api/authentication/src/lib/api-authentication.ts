@@ -1,4 +1,4 @@
-import { createUser, getUser } from "./api-authentication-service";
+import { createUser, getUserContact, getUserEmail, login } from "./api-authentication-service";
 import {User} from 'libs/services/src/lib/user/user'
 
 module.exports = function (app : any) {
@@ -11,7 +11,7 @@ module.exports = function (app : any) {
   app.post('/api/user/getUser', async function (req : any, res : any) {
     if (req.body)
     {
-      const user = getUser(req.body.email)
+      const user = getUserEmail(req.body.email)
       res.send({user: user})
     }
     else
@@ -24,9 +24,10 @@ module.exports = function (app : any) {
   app.post('/api/user/createUser', async function (req : any, res : any) {
     if (req.body)
     {
-      const user = await getUser(req.body.user.email); 
-      console.log(user);
-      if (user == null)
+      const userEmail = await getUserEmail(req.body.user.email); 
+      const userContact = await getUserContact(req.body.user.number); 
+      // console.log(user);
+      if (userEmail == null && userContact == null)
       {
         createUser(req.body.user).then(
           ()=>{
@@ -49,6 +50,21 @@ module.exports = function (app : any) {
     else
     {
       res.send({ user: {}});
+    }
+    
+  });
+
+  app.post('/api/user/login', async function (req : any, res : any) {
+    if (req.body)
+    {
+      console.log(req.body.email);
+      console.log(req.body.password);
+      const result = await login(req.body.email, req.body.password)
+      res.send(result);
+    }
+    else
+    {
+      res.send(false);
     }
     
   });

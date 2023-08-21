@@ -1,1 +1,35 @@
-<p>missing-number works!</p>
+<div class="container">
+  <div class="centered-div">
+    <div class="PalindoneLabel">Missing Number</div>
+    <br />
+    <div class="inputContainer">
+      <mat-form-field class="inputField" appearance="outline">
+        <mat-label>Input</mat-label>
+        <textarea
+          matInput
+          rows="5"
+          type="text"
+          placeholder="Enter word to check"
+          [value]="missingList"
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div class="missingButtonsContainer">
+      <div class="generateContainer">
+        <mat-form-field class="example-form-field">
+          <mat-label>Amount to generate</mat-label>
+          <input matInput type="text" [(ngModel)]="value" />
+          <button
+            matSuffix
+            mat-icon-button
+            (click)="generate()"
+          >
+            <span class="material-symbols-outlined"> autorenew </span>
+          </button>
+        </mat-form-field>
+      </div>
+      <button type="button" class="missingButtons">Check</button>
+    </div>
+    <div class="outputContainer">Missing number:</div>
+  </div>
+</div>

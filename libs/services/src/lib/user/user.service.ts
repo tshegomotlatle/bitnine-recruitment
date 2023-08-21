@@ -43,5 +43,16 @@ export class UserService {
         };
       }
 
+
+    public login(email: string, password : string){
+      const body = {
+        email: email,
+        password: password
+    }
+      return this.http.post<boolean>(
+      "http://localhost:3333/api/user/login",
+      body, this.options)
+      .pipe(catchError(this.handleError<boolean>('login', false)));
+    }
   }
 

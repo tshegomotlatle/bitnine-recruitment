@@ -9,8 +9,7 @@
       </mat-form-field>
     </div>
     <div class="outputContainer">
-      <div class="outText"  *ngIf="!palindroneStatus">Is not a palindrone!!</div>
-      <div class="outText" *ngIf="palindroneStatus">Is a palindrone!!</div>
+      <div class="outText" >{{output}}</div>
       <div class="outSymbol">
         <div class="innerOutSymbol">
           <span *ngIf="!palindroneStatus" class="material-symbols-outlined palidroneResultIconX"> close </span>

@@ -59,14 +59,44 @@ export async function createUser(user : User) {
    )
 }
 
-export async function getUser(email :string){  
-    const query = await Users.find({
+export async function getUserEmail(email :string){  
+    const query = await Users.findOne({
     email: email
   });
 
-  if (query.length > 0)
+  if (query?.email !== "")
     return query;
   else
     return null;
+  
+  }
+
+export async function getUserContact(contact :string){  
+    const query = await Users.findOne({
+    contactNo: contact
+  });
+
+  if (query?.contactNo !== "")
+    return query;
+  else
+    return null;
+  
+  }
+
+export async function login(email :string, password: string){  
+    const user = await getUserEmail(email);
+      console.log(user);
+    
+    if (user)
+    {
+      const hashedPassword = createHmac("sha256", user.salt + password).digest('hex');
+      console.log(hashedPassword);
+      if (hashedPassword == user.password)
+        return true;
+      else
+        return false;
+    }
+    else
+      return false;
   
   }
