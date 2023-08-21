@@ -1,23 +1,22 @@
 <div class="container">
-    <div class="centered-div">
-        <div class="PalindoneLabel">
-            Palindrone
-        </div> <br>
-        <div class="inputContainer">
-            <mat-form-field class="inputField" appearance="outline">
-              <mat-label>Input</mat-label>
-              <input matInput type="email" placeholder="Enter Email"/>
-            </mat-form-field> 
-        </div>
-        <div class="outputContainer">
-            <div class="outText">
-                Is not a palindrone!!
-            </div>
-            <div class="outSymbol">
-                <div class="innerOutSymbol">
-
-                </div>
-            </div>
-        </div>
+  <div class="centered-div">
+    <div class="PalindoneLabel">Palindrone</div>
+    <br />
+    <div class="inputContainer">
+      <mat-form-field class="inputField" appearance="outline">
+        <mat-label>Input</mat-label>
+        <input (keyup)="palidrone()" matInput type="email" placeholder="Enter word to check" [(ngModel)]="word" />
+      </mat-form-field>
     </div>
+    <div class="outputContainer">
+      <div class="outText"  *ngIf="!palindroneStatus">Is not a palindrone!!</div>
+      <div class="outText" *ngIf="palindroneStatus">Is a palindrone!!</div>
+      <div class="outSymbol">
+        <div class="innerOutSymbol">
+          <span *ngIf="!palindroneStatus" class="material-symbols-outlined palidroneResultIconX"> close </span>
+          <span *ngIf="palindroneStatus" class="material-symbols-outlined palidroneResultIconTick"> done </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

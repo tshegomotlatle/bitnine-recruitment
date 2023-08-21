@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { PalindroneComponent } from './palindrone/palindrone.component';
 import { MissingNumberComponent } from './missing-number/missing-number.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { MissingNumberComponent } from './missing-number/missing-number.componen
     MatIconModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forChild(uiRoutes),
   ],
   declarations: [
@@ -48,5 +50,6 @@ import { MissingNumberComponent } from './missing-number/missing-number.componen
     PalindroneComponent,
     MissingNumberComponent,
   ],
+  providers: []
 })
 export class UiModule {}
