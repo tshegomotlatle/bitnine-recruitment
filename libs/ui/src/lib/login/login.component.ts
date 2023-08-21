@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   showPassword = false;
   passwordShow = "password"
+  showRegister = false;
   email = "";
   password = "";
 
@@ -25,6 +26,18 @@ export class LoginComponent {
     {
       this.showPassword = true;
       this.password = "text";
+    }
+  }
+
+  toggleRegister()
+  {
+    if (this.showRegister)
+    {
+      this.showRegister = false;
+    }
+    else
+    {
+      this.showRegister = true;
     }
   }
 }
