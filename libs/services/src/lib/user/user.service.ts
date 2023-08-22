@@ -23,8 +23,14 @@ export class UserService {
       email: email,
     };
     return this.http
-      .post<User>('http://localhost:3333/api/user/getUser', body, this.options)
-      .pipe(catchError(this.handleError<User>('getUser', {} as User)));
+      .post<{ user: User }>(
+        'http://localhost:3333/api/user/getUser',
+        body,
+        this.options
+      )
+      .pipe(
+        catchError(this.handleError<{ user: User }>('getUser', {user:{} as User}))
+      );
   }
 
   public createUser(user: User) {

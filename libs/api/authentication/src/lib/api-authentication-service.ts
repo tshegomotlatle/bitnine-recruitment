@@ -85,12 +85,12 @@ export async function getUserContact(contact :string){
 
 export async function login(email :string, password: string){  
     const user = await getUserEmail(email);
-      console.log(user);
+      // console.log(user);
     
     if (user)
     {
       const hashedPassword = createHmac("sha256", user.salt + password).digest('hex');
-      console.log(hashedPassword);
+      // console.log(hashedPassword);
       if (hashedPassword == user.password)
         return true;
       else

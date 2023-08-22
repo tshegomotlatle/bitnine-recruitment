@@ -19,6 +19,7 @@ import { PalindroneComponent } from './palindrone/palindrone.component';
 import { MissingNumberComponent } from './missing-number/missing-number.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClockComponent } from './clock/clock.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -43,6 +44,7 @@ import { ClockComponent } from './clock/clock.component';
     PalindroneComponent,
     MissingNumberComponent,
     ClockComponent,
+    ProfileComponent,
   ],
   exports: [
     NavigationComponent,
@@ -52,6 +54,7 @@ import { ClockComponent } from './clock/clock.component';
     PalindroneComponent,
     MissingNumberComponent,
     ClockComponent,
+    ProfileComponent,
   ],
   providers: [],
 })

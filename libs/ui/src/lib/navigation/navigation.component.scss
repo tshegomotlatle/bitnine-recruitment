@@ -253,3 +253,27 @@ img.githubImage {
 div#loginText {
     margin-left: auto;
 }
+
+.signoutContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatarContainer {
+    position: relative;
+    border: 1px solid white;
+    border-radius: 10rem;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+.avatarContainer:hover {
+    color: #fac433;
+}
+
+#signoutButton:hover {
+    color: #fac433;
+;
+}

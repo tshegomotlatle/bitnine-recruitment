@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {User} from 'libs/services/src/lib/user/user'
 import {UserService} from 'libs/services/src/lib/user/user.service'
 
@@ -9,17 +10,18 @@ import {UserService} from 'libs/services/src/lib/user/user.service'
 })
 export class LoginComponent {
   showPassword = false;
-  showRegister = true;
+  showRegister = false;
   user : User = {} as User;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router : Router
   ){
     this.user = {
       name: "",
       email: "",
       id: "",
-      number: "",
+      contactNo: "",
       salt: "",
       password: "",
       surname: ""
@@ -77,11 +79,25 @@ export class LoginComponent {
   login():void{
     this.userService.login(this.user.email, this.user.password)
     .subscribe(
-      (res) =>{
-        console.log(res);
+      async (res) =>{
+        if (res) {
+          alert('Logged In');
+          console.log(this.user);
+          
+          this.userService.getJWTToken(this.user.email).subscribe(
+          (res) =>{
+            console.log(res);
+            this.userService.setLoggedIn(res.token, this.user.email);
+            this.userService.isUserLoggedIn.next(true);
+            this.router.navigateByUrl("/Profile")
+          });
+          
+          
+        } else {
+          alert('Wrong email/password combination');
+        }
       }
     )
-    
   }
 
   checkUserDetails() :boolean
@@ -96,7 +112,7 @@ export class LoginComponent {
       return false;
     if (this.user.surname === "")
       return false;
-    if (this.user.number === "")
+    if (this.user.contactNo === "")
       return false;
     else
       return true;

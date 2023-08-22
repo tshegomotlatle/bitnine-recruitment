@@ -60,10 +60,18 @@
         <a mat-button [routerLink]="'/Question-6-2'"> Question 6-2 </a>
       </div>
       <div class="navigationText">
-        <a mat-button [routerLink]="'/Question-6-3'"> Question 6-2 </a>
+        <a mat-button [routerLink]="'/Question-6-3'"> Question 6-3 </a>
       </div>
-      <div class="navigationText" id="loginText">
-        <a mat-button [routerLink]="'/Login'"> Login </a>
+      <div class="navigationText2" id="loginText" >
+        <a mat-button [routerLink]="'/Login'" *ngIf="!isLoggedIn"> Login </a>
+        <div class="signoutContainer" *ngIf="isLoggedIn">
+          <div class="avatarContainer" [routerLink]="'/Profile'">
+            <span class="material-symbols-outlined">
+              person
+              </span>
+          </div>
+          <a mat-button   id="signoutButton" (click)="signout()"> Sign out </a>
+        </div>
       </div>
     </div>
   </mat-toolbar-row>

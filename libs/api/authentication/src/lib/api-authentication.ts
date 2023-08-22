@@ -1,5 +1,6 @@
 import { createUser, getUserContact, getUserEmail, login } from "./api-authentication-service";
 import {User} from 'libs/services/src/lib/user/user'
+import * as jwt from 'jsonwebtoken'
 
 module.exports = function (app : any) {
 
@@ -11,7 +12,7 @@ module.exports = function (app : any) {
   app.post('/api/user/getUser', async function (req : any, res : any) {
     if (req.body)
     {
-      const user = getUserEmail(req.body.email)
+      const user = await getUserEmail(req.body.email)
       res.send({user: user})
     }
     else
@@ -19,6 +20,28 @@ module.exports = function (app : any) {
       res.send({ user: {}});
     }
     
+  });
+
+  app.post('/api/user/getJWTToken', async function (req: any, res: any) {
+    console.log("HERE JO");
+    const SECRET = 'Bitnine_Recruitment';
+    
+    if (req.body) {
+      // const user = await getUserEmail(req.body.email);
+      const token = jwt.sign(
+        {
+          user: req.body.email,
+        },
+        SECRET
+      );
+      // console.log(token);
+      // console.log(jwt.verify(token, SECRET));
+      
+
+      res.send({ token: token });
+    } else {
+      res.send({ token: null });
+    }
   });
 
   app.post('/api/user/createUser', async function (req : any, res : any) {
@@ -57,8 +80,8 @@ module.exports = function (app : any) {
   app.post('/api/user/login', async function (req : any, res : any) {
     if (req.body)
     {
-      console.log(req.body.email);
-      console.log(req.body.password);
+      // console.log(req.body.email);
+      // console.log(req.body.password);
       const result = await login(req.body.email, req.body.password)
       res.send(result);
     }
