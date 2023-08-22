@@ -28,8 +28,8 @@
           </button>
         </mat-form-field>
       </div>
-      <button type="button" class="missingButtons">Check</button>
+      <button type="button" class="missingButtons" (click)="findMissing()">Check</button>
     </div>
-    <div class="outputContainer">Missing number:</div>
+    <div class="outputContainer">Missing number:{{missingNumber}}</div>
   </div>
 </div>

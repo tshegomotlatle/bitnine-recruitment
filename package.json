@@ -56,7 +56,6 @@
     "@typescript-eslint/parser": "^5.60.1",
     "@vitest/coverage-c8": "~0.32.0",
     "@vitest/ui": "~0.32.0",
-    "crypto-js": "^4.1.1",
     "cypress": "^4.2.0",
     "eslint": "~8.46.0",
     "eslint-config-prettier": "8.1.0",
