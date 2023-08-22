@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PalindroneComponent } from './palindrone/palindrone.component';
 import { MissingNumberComponent } from './missing-number/missing-number.component';
+import { ClockComponent } from './clock/clock.component';
 
 export const uiRoutes: Route[] = [
   /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
@@ -14,5 +15,6 @@ export const uiRoutes: Route[] = [
   {path: "Login", pathMatch: "full", component: LoginComponent},
   {path: "Question-6-1", pathMatch: "full", component: PalindroneComponent},
   {path: "Question-6-2", pathMatch: "full", component: MissingNumberComponent},
+  {path: "Question-6-3", pathMatch: "full", component: ClockComponent},
   {path: "test", pathMatch: "full", component: TestComponent }
 ];

@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { PalindroneComponent } from './palindrone/palindrone.component';
 import { MissingNumberComponent } from './missing-number/missing-number.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     PalindroneComponent,
     MissingNumberComponent,
+    ClockComponent,
   ],
   exports: [
     NavigationComponent,
@@ -49,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     PalindroneComponent,
     MissingNumberComponent,
+    ClockComponent,
   ],
-  providers: []
+  providers: [],
 })
 export class UiModule {}

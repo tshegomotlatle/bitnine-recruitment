@@ -14,3 +14,5 @@ export * from './lib/login/login.component';
 export * from './lib/palindrone/palindrone.component';
 
 export * from './lib/missing-number/missing-number.component';
+
+export * from './lib/clock/clock.component';

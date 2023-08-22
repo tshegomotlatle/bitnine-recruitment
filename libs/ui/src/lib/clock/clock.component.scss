@@ -1,0 +1,25 @@
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.clockContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    border: 2px solid black;
+    border-radius: 1rem;
+    color:#022ea9;
+    text-shadow: 2px 2px 5px #fac433;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.clockLooks{
+    // border: 1px solid black;
+    padding: 1.5rem;
+}
