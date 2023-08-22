@@ -2,57 +2,99 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  private options = {
+    headers: new HttpHeaders().set('Content-Type', 'application/json'),
+  };
+  isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
 
-  private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+  constructor(private http: HttpClient) {}
 
-
-  constructor(private http : HttpClient) { }
-
-  public getUser(email:string){
+  public getUser(email: string) {
     const body = {
-        email: email
-    }
-    return this.http.post<User>(
-      "http://localhost:3333/api/user/getUser",
-      body, this.options)
+      email: email,
+    };
+    return this.http
+      .post<User>('http://localhost:3333/api/user/getUser', body, this.options)
       .pipe(catchError(this.handleError<User>('getUser', {} as User)));
-    }
-
-  public createUser(user : User){
-    const body = {
-        user: user
-    }
-    return this.http.post<boolean>(
-      "http://localhost:3333/api/user/createUser",
-      body, this.options)
-      .pipe(catchError(this.handleError<boolean>('createUser', false)));
-    }
-
-    private handleError<T>(operation = 'operation', result?: T) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return (error: any): Observable<T> => {
-          console.error(error);
-          console.log(`${operation} failed: ${error.messgae}`);
-    
-          return of(result as T);
-        };
-      }
-
-
-    public login(email: string, password : string){
-      const body = {
-        email: email,
-        password: password
-    }
-      return this.http.post<boolean>(
-      "http://localhost:3333/api/user/login",
-      body, this.options)
-      .pipe(catchError(this.handleError<boolean>('login', false)));
-    }
   }
+
+  public createUser(user: User) {
+    const body = {
+      user: user,
+    };
+    return this.http
+      .post<boolean>(
+        'http://localhost:3333/api/user/createUser',
+        body,
+        this.options
+      )
+      .pipe(catchError(this.handleError<boolean>('createUser', false)));
+  }
+
+  public setLoggedIn(token: string, email: string) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('email', email);
+  }
+
+  public getLoggedInToken() {
+    return localStorage.getItem('token');
+  }
+
+  public getLoggedInEmail() {
+    return localStorage.getItem('email');
+  }
+
+  public clearTokens() {
+    localStorage.removeItem('email');
+    localStorage.removeItem('token');
+  }
+
+  public getJWTToken(email: string) {
+    console.log('Getting JWT token');
+
+    const body = {
+      email: email,
+    };
+    return this.http
+      .post<{ token: string }>(
+        'http://localhost:3333/api/user/getJWTToken',
+        body,
+        this.options
+      )
+      .pipe(
+        catchError(
+          this.handleError<{ token: string }>('getJWTToken', { token: '' })
+        )
+      );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.messgae}`);
+
+      return of(result as T);
+    };
+  }
+
+  public login(email: string, password: string) {
+    const body = {
+      email: email,
+      password: password,
+    };
+    return this.http
+      .post<boolean>('http://localhost:3333/api/user/login', body, this.options)
+      .pipe(catchError(this.handleError<boolean>('login', false)));
+  }
+}
 
