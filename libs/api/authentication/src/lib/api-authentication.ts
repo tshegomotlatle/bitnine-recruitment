@@ -23,7 +23,7 @@ module.exports = function (app : any) {
   });
 
   app.post('/api/user/getJWTToken', async function (req: any, res: any) {
-    console.log("HERE JO");
+    // console.log("HERE JO");
     const SECRET = 'Bitnine_Recruitment';
     
     if (req.body) {
@@ -49,7 +49,8 @@ module.exports = function (app : any) {
     {
       const userEmail = await getUserEmail(req.body.user.email); 
       const userContact = await getUserContact(req.body.user.number); 
-      // console.log(user);
+      // console.log(userEmail);
+      // console.log(userContact);
       if (userEmail == null && userContact == null)
       {
         createUser(req.body.user).then(
@@ -60,7 +61,7 @@ module.exports = function (app : any) {
         .catch(
           (err) =>
           {
-            console.log(err);
+            // console.log(err);
             res.send(false)
           }
         );      

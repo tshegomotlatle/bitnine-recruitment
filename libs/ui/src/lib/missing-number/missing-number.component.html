@@ -30,6 +30,6 @@
       </div>
       <button type="button" class="missingButtons" (click)="findMissing()">Check</button>
     </div>
-    <div class="outputContainer">Missing number:{{missingNumber}}</div>
+    <div class="outputContainer" *ngIf="missingNumber !== -1">Missing number:{{missingNumber}}</div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'bitnine-recruitment-clock',
@@ -14,11 +15,19 @@ export class ClockComponent {
   second = this.date.getSeconds();
   secondStr = this.date.getSeconds().toString();
   zone = 'AM';
+  questionRoute = '/Question-6-3';
+  timer!: number;
 
-  constructor() {
-    window.setInterval(() => {
+  constructor(private router: Router) {
+    this.timer = window.setInterval(() => {
       this.update();
     }, 500);
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationStart == true) {
+        window.clearInterval(this.timer);
+        console.log(val instanceof NavigationStart);
+      }
+    });
   }
 
   update() {
@@ -29,7 +38,7 @@ export class ClockComponent {
     this.hoursStr = this.date.getHours().toString();
     this.minutesStr = this.date.getMinutes().toString();
     this.secondStr = this.date.getSeconds().toString();
-    
+
     if (this.hours < 10) {
       this.hoursStr = '0' + this.hours.toString();
     }
@@ -42,9 +51,5 @@ export class ClockComponent {
     if (this.hours > 12) {
       this.zone = 'PM';
     }
-    console.log(this.hoursStr);
-    console.log(this.minutesStr);
-    console.log(this.secondStr);
-    
   }
 }
