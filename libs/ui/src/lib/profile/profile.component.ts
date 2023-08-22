@@ -34,6 +34,19 @@ export class ProfileComponent implements OnInit {
   }
 
   update(){
+    this.userService.updateUser(this.user).subscribe(
+      res =>{
+        if (res)
+        {
+          alert("Updated user!");
+        }
+        else
+        {
 
+          alert("Could not update user, try again");
+        }
+        
+      }
+    )
   }
 }

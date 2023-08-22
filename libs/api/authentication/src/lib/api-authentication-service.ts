@@ -43,7 +43,7 @@ export async function createUser(user : User) {
     const newUser = new Users({
         name: user.name,
         surname: user.surname,
-        contactNo: user.number,
+        contactNo: user.contactNo,
         email: user.email,
         salt: salt,
         password: saltedPassword
@@ -99,4 +99,24 @@ export async function login(email :string, password: string){
     else
       return false;
   
+  }
+
+  export async function updateUser(user : User)
+  {
+     const result = await Users.findOneAndUpdate(
+      {email: user.email},
+      {name: user.name,
+      surname: user.surname
+    },
+     )
+     console.log(result);
+     
+
+     if (result)
+     {
+       if (result.acknowledged && result.modifiedCount > 1) 
+       return true;
+      else
+       return false;
+     }
   }

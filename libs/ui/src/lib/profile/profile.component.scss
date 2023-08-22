@@ -11,3 +11,25 @@
     // border: 1px solid black;
     padding: 3rem;
 }
+
+.avatar {
+    border: 1px solid lightgray;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+button.loginButton {
+  padding: 10px 15px;
+  color: white;
+  background: #022ea9;
+  border: none;
+  border-radius: 5px;
+}
+
+button.loginButton:hover {
+  color: #fac433;
+}
+
+mat-form-field{
+    width: 100%;
+}

@@ -3,7 +3,7 @@ import { User } from './user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +29,9 @@ export class UserService {
         this.options
       )
       .pipe(
-        catchError(this.handleError<{ user: User }>('getUser', {user:{} as User}))
+        catchError(
+          this.handleError<{ user: User }>('getUser', { user: {} as User })
+        )
       );
   }
 
@@ -44,6 +46,19 @@ export class UserService {
         this.options
       )
       .pipe(catchError(this.handleError<boolean>('createUser', false)));
+  }
+
+  public updateUser(user: User) {
+    const body = {
+      user: user,
+    };
+    return this.http
+      .post<boolean>(
+        'http://localhost:3333/api/user/updateUser',
+        body,
+        this.options
+      )
+      .pipe(catchError(this.handleError<boolean>('updateUser', false)));
   }
 
   public setLoggedIn(token: string, email: string) {
@@ -102,5 +117,36 @@ export class UserService {
       .post<boolean>('http://localhost:3333/api/user/login', body, this.options)
       .pipe(catchError(this.handleError<boolean>('login', false)));
   }
-}
 
+  public checkIfLogged() {
+    const token = this.getLoggedInToken();
+    let decoded: { user: string; iat: string } = {
+      user:"",
+      iat:""
+    };
+    if (token)
+    {
+       decoded = jwt_decode(token || '');
+
+    }
+    else
+    {
+      return false
+    }
+    const email = this.getLoggedInEmail();
+
+    if (decoded && email)
+    {
+      if (decoded.user == email) 
+        return true;
+      else 
+        return false;
+    }
+    else{
+      return false;
+    }
+    
+  }
+
+
+}

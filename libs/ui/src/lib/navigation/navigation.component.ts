@@ -15,11 +15,17 @@ export class NavigationComponent {
 
   constructor(private userService: UserService,
     private router : Router){
-    this.userService.isUserLoggedIn.subscribe(
-      value =>{
+      this.userService.isUserLoggedIn.subscribe((value) => {
         this.isLoggedIn = value;
-      }
-    )
+      });
+      
+      if (this.userService.checkIfLogged())
+        {
+          this.isLoggedIn = true;
+        }
+        // console.log();
+
+        
   }
 
   toggleSearchBarShow() : void

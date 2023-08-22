@@ -1,4 +1,4 @@
-import { createUser, getUserContact, getUserEmail, login } from "./api-authentication-service";
+import { createUser, getUserContact, getUserEmail, login, updateUser } from "./api-authentication-service";
 import {User} from 'libs/services/src/lib/user/user'
 import * as jwt from 'jsonwebtoken'
 
@@ -83,6 +83,21 @@ module.exports = function (app : any) {
       // console.log(req.body.email);
       // console.log(req.body.password);
       const result = await login(req.body.email, req.body.password)
+      res.send(result);
+    }
+    else
+    {
+      res.send(false);
+    }
+    
+  });
+
+  app.post('/api/user/updateUser', async function (req : any, res : any) {
+    if (req.body)
+    {
+      // console.log(req.body.email);
+      // console.log(req.body.password);
+      const result = await updateUser(req.body.user)
       res.send(result);
     }
     else
