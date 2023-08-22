@@ -2,7 +2,10 @@
   "name": "@bitnine-recruitment/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "api":"npx nx run bitnine-api:serve",
+    "app": "npx nx run bitnine:serve"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
